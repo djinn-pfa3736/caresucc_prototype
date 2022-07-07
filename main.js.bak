@@ -1,0 +1,23 @@
+$(function() {
+
+  var canvas = document.getElementById('canvas');
+
+  const video = document.getElementById('first_video');
+
+  const recStart = document.getElementById('first_start');
+  const recStop = document.getElementById('first_stop');
+
+  navigator.mediaDevices.getUserMedia({
+      video: true,
+      audio: false,
+  }).then(stream => {
+      video.srcObject = stream;
+      video.play();
+  }).catch(e => {
+    console.log(e)
+  });
+
+  firstRecorder = new MotionRecorder(video, canvas, recStart, recStop);
+  setInterval("firstRecorder.pushFrame()", 1000/60);
+
+});

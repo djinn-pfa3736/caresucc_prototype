@@ -1,0 +1,3 @@
+<?php
+  echo 'MOVIE GENERATION HAS BEEN FINISHED!!';
+ ?>
